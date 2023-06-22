@@ -13,19 +13,19 @@ void execute(char *opcd, unsigned int line_number)
 		{NULL, NULL}
 	};
 	int i;
-	stack_t *stack;
+	stack_t *stack = NULL;
 
 	for (i = 0; _opcodes[i].opcode; i++)
 	{
 		if (strcmp(opcd, _opcodes[i].opcode) == 0)
 		{
-			_opcodes[i].f(stack, line_number);
+			_opcodes[i].f(&stack, line_number);
 			return;
 		}
-		if (strlen(opcd) != 0 && opcd[0] != '#')
-		{
-			fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcd);
-			exit(EXIT_FAILURE);
-		}
+	}
+	if (strlen(opcd) != 0 && opcd[0] != '#')
+	{
+		fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcd);
+		exit(EXIT_FAILURE);
 	}
 }
