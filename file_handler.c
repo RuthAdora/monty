@@ -11,6 +11,12 @@ int file_handler(char *filename)
 	size_t len = 0;
 	ssize_t read;
 
+	if (!filename)
+	{
+		fprintf(stderr, "Error: Can't open file %s\n", filename);
+		return (EXIT_FAILURE);
+	}
+
 	file = fopen(filename, "r");
 	if (file == NULL)
 	{
