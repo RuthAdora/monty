@@ -13,6 +13,7 @@ void execute(char *opcd, unsigned int line_number)
 		{NULL, NULL}
 	};
 	int i;
+	stack_t *stack;
 
 	for (i = 0; _opcodes[i].opcode; i++)
 	{
