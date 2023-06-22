@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 {
         if (argc != 2)
 	{
-		fprintf("USAGE: monty file");
+		fprintf(stderr, "USAGE: %s <filename>\n", argv[0]);
 		return (EXIT_FAILURE);
 	}
 
