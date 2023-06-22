@@ -9,7 +9,7 @@ void execute(char *opcd, unsigned int line_number)
 {
 	instruction_t _opcodes[] = {
 		{"push", push},
-		{"pall", pall}
+		{"pall", pall},
 		{NULL, NULL}
 	};
 	int i;
