@@ -10,22 +10,28 @@ int file_handler(char *filename)
 	char *line = NULL;
 	size_t len = 0;
 	ssize_t read;
+	char *op;
+	int line_number = 0;
 
 	if (!filename)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", filename);
-		return (EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	}
 
 	file = fopen(filename, "r");
 	if (file == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", filename);
-		return (EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	}
 
 	while ((read = getline(&line, &len, file)) != -1)
 	{
+		op = strtok(line, "\n\t\r ");
+		line_number++;
+		if (op)
+			execute(op, line_number);
 
 	}
 

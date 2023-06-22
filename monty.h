@@ -37,5 +37,6 @@ typedef struct instruction_s
 
 ssize_t getline(char **lineptr, size_t *n, FILE *stream);
 int file_handler(char *filename);
+void execute(char *opcode, unsigned int line_number);
 
 #endif /* MAIN */
